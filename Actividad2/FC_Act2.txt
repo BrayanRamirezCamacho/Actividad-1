@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[]{amsmath}
+\usepackage[]{amssymb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage{color}
+\usepackage{geometry}
+
+%Colores
+\usepackage{pstricks}
+\newrgbcolor{darkgreen}{0 .5 0}
+\newrgbcolor{blues}{0 0 .5}
+\newrgbcolor{morado}{.3984 .1992 .9961}
+\newrgbcolor{cafe}{.5391 .3594 .1797}
+\newrgbcolor{cafeoscuro}{.4 .26 .13}
+\newrgbcolor{darksienna}{0.24, 0.08, 0.08}
+
+\title{Actividad 2}
+\author{Brayan Alexis Ramírez Camacho\\
+Lic. en Física\\
+Universidad de Sonora
+}
+\date{Febrero de 2019}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Resumen de Actividad}
+Lo que se presenta a continuación es un resumen general de la actividad realizada, relacionada al análisis de datos meteorológicos.
+
+\begin{enumerate}
+    
+    \item Se crean las carpetas de trabajo: \textit{Computacional1}, y \textit{Actividad2}.
+    
+    \item Se recogen archivos de datos desde el sitio web del Servicio Meteorológico Nacional (SMN). El estado y estación de recolección son de libre elección. El archivo de datos contiene mediciones separadas en intervalos de una hora.
+    
+    \item Desde Jupyter Notebook, se comienza a trabajar con los datos en un entorno de trabajo.
+    
+    \item En un repositorio provisto por el profesor, se analiza un archivo de ejemplo con una sesión de Jupyter Notebook, en el que se realiza el tratamiento sobre datos meteorológicos medidos por una estación meteorológica de ejemplo. El fin de esto es comparar para poder realizar el mismo tratamiento sobre otro archivo de datos.\par
+    El tratamiento sistemático es el siguiente:
+    \begin{enumerate}
+    
+        \item Se cargan a la memoria de trabajo las bibliotecas Panda, Numpy y Matplotlib y se asignan nombres cortos para facilitar el trabajo posterior.
+        
+        \item Se leen los datos desde el archivo de texto. En este caso particular, se analizan los datos de la estación del SMN operando en Bahía de Kino, Sonora. Para ello se utiliza la función de Pandas, \textit{read\_csv}.
+        
+        \item Se muestran los primeros 5 renglones del archivo.
+        
+        \item Mediante la función DataFrame de Pandas, se le da una estructura específica al conjunto de datos.
+        
+        \item Para verificar, se muestran los tipos de datos que Pandas ha reconocido, siendo algunas variables \textit{Object} y otras \textit{Float}.
+        
+        \item Se fusionan las columnas de fecha y hora para crear una sola columna que contenga una nueva variable de tiempo.
+        
+        \item Utilizando la función \textit{Describe} se muestran algunos cálculos estadísticos sobre las variables meteorológicas: el número de datos recogidos, la media aritmética, el estándar, el mínimo, el máximo, etc.
+        
+        \item Se muestran los datos de temperatura pertenecientes al intervalo entre 24 y 25 $^\circ$C.
+        
+        \item Haciendo uso de la función \textit{Mean}, se calculan los valores promedio de las variables.
+        
+        \item Se construye una gráfica con la rapidez de los vientos como función del tiempo, la cual se muestra a continuación:
+        
+        \begin{center}
+        \includegraphics[width=0.5\textwidth]{VELSvst.png}    
+        \end{center}
+        
+        \item Se genera una gráfica con la temperatura y la humedad relativa como funciones del tiempo:
+        
+        \begin{center}
+        \includegraphics[width=0.5\textwidth]{TEMPyHRvst.png}    
+        \end{center}
+        
+        \item Se realiza una gráfica mostrando ahora únicamente la variación temporal de la temperatura:
+        
+         \begin{center}
+        \includegraphics[width=0.5\textwidth]{TEMPvst.png}    
+        \end{center}
+       
+    \end{enumerate} 
+    
+    \item Adicionalmente, se crea una gráfica mostrando la rapidez de los vientos y la rapidez de las ráfagas como funciones del tiempo:
+    
+    \begin{center}
+    \includegraphics[width=0.5\textwidth]{VELSyVELRvst.png}    
+    \end{center}
+    
+    donde es posible apreciar que las horas del día con vientos más veloces son entre las 15:00 y las 18:00 horas.
+    
+    \item Se crea una gráfica con dirección de los vientos como función del tiempo:
+    \begin{center}
+    \includegraphics[width=0.5\textwidth]{}    
+    \end{center}
+    donde se aprecia que los vientos dominantes soplan en dirección de entre 50 y 300 $^\circ$, aproximadamente.
+    
+    \item El comportamiento de la intensidad de la radiación solar como función del tiempo se muestra en la siguiente figura:
+    \begin{center}
+    \includegraphics[width=0.5\textwidth]{RADSOLvst.png}    
+    \end{center}
+    dejando ver que los picos de intensidad se presentan regularmente, cada que el Sol está en el cenit.
+    
+\end{enumerate}
+
+
+
+\section{Jupyter Notebook}
+Que los procesos de trabajo en equipo sean sencillos tiene una importancia esencial en muchas industrias. Por ello, las herramientas para comunicarse y organizar las diferentes versiones de las etapas de trabajo y datos de un proyecto se han vuelto indispensables.
+Existen muchas aplicaciones de análisis de datos cuyo objetivo es presentar herramientas de trabajo que permitan organizar las distintas versiones de un proyecto en cada etapa de trabajo. Jupyter Notebook, por ejemplo, es una aplicación web donde los usuarios pueden crear y compartir código, ecuaciones, visualizaciones, etc.\par
+
+Una ventaja de Jupyter Notebook es que el código se organiza en celdas independientes, es decir, es posible probar bloques concretos de código de forma individual. Gracias a que existen muchos kernels o núcleos adicionales, Jupyter no se limita al lenguaje de programación Python, lo que aporta muchísima flexibilidad a la hora de crear código y de hacer análisis.\par
+
+Otros de los usos de Jupyter Notebook son: depuración de datos; modelado estadístico; creación y entrenamiento de modelos de aprendizaje automático (Machine Learning); visualización de datos, etc.\par
+
+Además, algunas ventajas son que es una aplicación de código abierto, es gratuito, funciona en el navegador web, permite diferentes opciones a la hora de exportar y compartir los resultados, permite colaboración y soporta más de 50 lenguajes de programación, entre otras.
+
+\section{Apéndice: Impresiones personales}
+El entorno de trabajo de Jupyter Notebook es muy "amigable" con el usuario, además que es sencillo realizar actividades en él.\\
+La lectura de código es, sin duda, muy distinta de realizar en Python o en Fortran, pero se conservan ciertas similitudes entre uno y otro lenguaje de programación.\\
+La generación de gráficas es mucho más sencilla de realizar usando la biblioteca Matplotlib que la manera acostumbrada de Fortran y GNUPLOT.\\
+En general, el ambiente de trabajo de Python es más dinámico que el de Fortran, además de tener a disposición montones de librerias de uso público que facilitan todo tipo de actividad que, de otra manera, se realizan manualmente.\\
+Como comentario a ésta actividad, considero pertinente mencionar que sería útil una breve introducción general a Python, explicando superficialmente cómo es la estructura de este lenguaje de programación, los distintos constructos que se utilizan, las características más generales que lo diferencian de otros lenguajes, etcétera.
+
+
+
+
+\end{document}
